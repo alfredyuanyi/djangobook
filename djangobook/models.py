@@ -14,6 +14,9 @@ class Publisher(models.Model):
 	def __unicode__(self):
 		return self.name
 		pass
+	#指定默认的排序方式
+	class Meta:
+		ordering = ['name']
 	pass
 class Author(models.Model):
 	firstName = models.CharField(max_length = 30)
