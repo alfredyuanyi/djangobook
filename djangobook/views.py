@@ -31,3 +31,8 @@ def Home(request):
 	# return HttpResponse(html)
 	return render(request, 'home.html', {'name': '晴天'})
 	pass
+def ShowRequestMeta(request):
+	values = request.META.items()
+	values.sort()
+	return render(request, 'showrequestMeta.html', {'values': values})
+	pass

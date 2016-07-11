@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %} requestMETA{% endblock %}
+{% block content %} 
+{% for k, v in values %}
+<tr>
+<p><td>{{k}}: </td><td>{{v}}</td></p>
+</tr>
+{% endfor %}
+{% endblock %}
