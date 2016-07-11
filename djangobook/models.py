@@ -22,7 +22,7 @@ class Publisher(models.Model):
 class Author(models.Model):
 	firstName = models.CharField(max_length = 30)
 	lastName = models.CharField(max_length = 40)
-	email = models.EmailField()
+	email = models.EmailField(blank = True)
 	def __unicode__(self):
 		return u'%s %s' % (self.firstName, self.lastName) 
 		pass
