@@ -11,14 +11,23 @@ class Publisher(models.Model):
 	stateProvince = models.CharField(max_length = 30)
 	country = models.CharField(max_length = 50)
 	website = models.URLField()
+	def __unicode__(self):
+		return self.name
+		pass
 	pass
 class Author(models.Model):
 	firstName = models.CharField(max_length = 30)
 	lastName = models.CharField(max_length = 40)
 	email = models.EmailField()
+	def __unicode__(self):
+		return u'%s %s' % (self.firstName, self.lastName) 
+		pass
 	pass
 class Book(models.Model):
 	title = models.CharField(max_length = 100)
 	author = models.ManyToManyField(Author)
 	publisher = models.ForeignKey(Publisher)
 	publicationDate = models.DateField()
+	def __unicode__(self):
+		return self.title
+		pass
