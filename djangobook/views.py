@@ -1,9 +1,11 @@
 # coding: utf-8
 from django.shortcuts import render
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.template.loader import get_template
 from django.template import Context
-
+from django.core.mail import send_mail
+from djangobook.forms import ContactForm
+from tutorial.settings import EMAIL_HOST_USER
 
 import datetime
 # Create your views here.
@@ -35,4 +37,25 @@ def ShowRequestMeta(request):
 	values = request.META.items()
 	values.sort()
 	return render(request, 'showrequestMeta.html', {'values': values})
+	pass
+def Contact(request):
+	if request.method == 'POST':
+		form = ContactForm(request.POST)
+		if form.is_valid():
+			cleaned_data = form.cleaned_data
+			send_mail(
+				cleaned_data['subject'], 
+				cleaned_data['message'], 
+				from_email = EMAIL_HOST_USER, 
+				recipient_list = [cleaned_data['email']]
+				)
+			return HttpResponseRedirect('/djangobook/contact/thanks/')
+			pass
+		pass
+	else:
+		form = ContactForm(initial = {'subject': 'I love your site!'})
+	return render(request, 'contact.html', {'form': form})
+	pass
+def Thanks(request):
+	return render(request, 'thanks.html')
 	pass

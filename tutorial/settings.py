@@ -1,3 +1,4 @@
+# coding: utf8
 """
 Django settings for tutorial project.
 
@@ -130,7 +131,12 @@ USE_L10N = True
 
 USE_TZ = True
 
-
+EMAIL_HOST = 'em.njupt.edu.cn'#'smtp.163.com' # smtp 地址（这里需要注意，如果你和我一样使用 163 邮箱的话，默认 smtp 功能是关闭的，需要去设置开启，并生成一个一次性密码用于连接 smtp 服务）
+EMAIL_PORT = '25'
+EMAIL_HOST_USER =       'b14070316@njupt.edu.cn'#'xxxxxxxxxx@163.com' # 用户
+EMAIL_HOST_PASSWORD = 'ouyangjunyu521' # 密码
+EMAIL_SUBJECT_PREFIX = u'[djangobook]' # 为邮件Subject-line前缀,默认是'[django]'
+EMAIL_USE_TLS = True # 与SMTP服务器通信时，是否启动TLS链接(安全链接)。默认是false
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 

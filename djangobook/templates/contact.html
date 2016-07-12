@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %} Contact us {% endblock %}
+{% block content %} 
+<h1>Contact us</h1>
+{% if form.errors %}
+<p style="color: red;">
+	<!-- pluralize : 可根据被过滤对象来决定是否生成’s‘ -->
+	Please correct the error{{ form.errors| pluralize }} below
+</p>
+{% endif %}
+<form action="" method="post">
+	<table>
+		{{ form.as_table }}
+	</table>
+	<input type="submit" name="" value="submit">
+</form>
+<h1>version2 of form</h1>
+<form action="" method="post">
+	<div class="">
+		{{ form.subject.errors }}
+		<label for="id_subject"> Subject:</label>
+		{{ form.subject }}
+	</div>
+	<div class="field">
+		{{ form.email.errors }}
+		<label for="id_subject"> You e-mail address:</label>
+		{{ form.email }}
+	</div>
+	<div class="">
+		{{ form.message.errors }}
+		<label for="id_subject"> Message:</label>
+		{{ form.message }}
+	</div>
+	<input type="submit" name="" value="Submit">
+</form>
+{% endblock %}
