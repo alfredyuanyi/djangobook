@@ -1,9 +1,11 @@
+# coding: utf8
 from django.conf.urls import url, patterns
 from djangobook import views
 
 urlpatterns = [
 	# url(r'^djangobook/hello$', views.Hello),
-	url(r'^$', views.Hello),
+	#传递额外的参数到视图
+	url(r'^$', views.Hello, {'template_name': 'template2'}),
 	url(r'^djangobook/time/plus/(\d{1,2})/$', views.HoursAhead),
 	url(r'^djangobook/home/$', views.Home),
 	url(r'^djangobook/requestmeta/$', views.ShowRequestMeta),
@@ -11,5 +13,6 @@ urlpatterns = [
 	url(r'^djangobook/contact/thanks/$', views.Thanks),
 ]
 urlpatterns += patterns('', 
-	(r'djangobook/hello/$', views.Hello),
+	#传递额外的参数到视图
+	(r'djangobook/hello/$', views.Hello, {'template_name': 'template1'}),
 	)

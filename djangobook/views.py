@@ -10,7 +10,7 @@ from tutorial.settings import EMAIL_HOST_USER
 import datetime
 # Create your views here.
 
-def Hello(request):
+def Hello(request, template_name):
 	now = datetime.datetime.now()
 	now = (str(now)).split('.')[0]
 	html = "<html><body><p>hello world!</p><p>It is now %s.</p></body></html>" % now
