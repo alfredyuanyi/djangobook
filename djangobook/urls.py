@@ -11,6 +11,7 @@ urlpatterns = [
 	url(r'^djangobook/requestmeta/$', views.ShowRequestMeta),
 	url(r'^djangobook/contact/$', views.Contact),
 	url(r'^djangobook/contact/thanks/$', views.Thanks),
+	# url(r'^djangobook/requestcontext/$', views.RequestContext),
 ]
 urlpatterns += patterns('', 
 	#传递额外的参数到视图

@@ -1,11 +1,13 @@
 # coding: utf-8
-from django.shortcuts import render
+from django.shortcuts import render, render_to_response
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.template.loader import get_template
-from django.template import Context
+from django.template import Context, RequestContext
 from django.core.mail import send_mail
 from djangobook.forms import ContactForm
 from tutorial.settings import EMAIL_HOST_USER
+from functions import *
+
 
 import datetime
 # Create your views here.
@@ -59,3 +61,9 @@ def Contact(request):
 def Thanks(request):
 	return render(request, 'thanks.html')
 	pass
+# def RequestContext(request):
+# 	t = get_template('requestcontext.html')
+# 	c = RequestContext(request, processors)
+# 	c.push({'message': 'I am the first views'})
+# 	return HttpResponse(t.render(c))
+# 	pass
