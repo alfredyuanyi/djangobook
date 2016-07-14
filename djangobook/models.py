@@ -61,33 +61,34 @@ class Book(models.Model):
 	def __unicode__(self):
 		return self.title
 		pass
-
+# ************************************************************************************
 # 模型方法 可以为模型添加行级功能
-from django.contrib.localflavor.us.models import USStateField
+# from django.contrib.localflavor.us.models import USStateField
 
-class Person(models.Model):
-	first_name = models.CharField(max_length = 50)
-	last_name = models.CharField(max_length = 50)
-	birth_date = models.DateField()
-	address = models.CharField(max_length = 100)
-	city = models.CharField(max_length = 50)
-	state = USStateField()
+# class Person(models.Model):
+# 	first_name = models.CharField(max_length = 50)
+# 	last_name = models.CharField(max_length = 50)
+# 	birth_date = models.DateField()
+# 	address = models.CharField(max_length = 100)
+# 	city = models.CharField(max_length = 50)
+# 	state = USStateField()
 
-	def baby_boomer_status(self):
-		import datetime
-		if datetime.date(1945, 8, 1) <= self.birth_date <= datetime.date(1964, 12, 31):
-			return 'Baby boomer'
-			pass
-		if datetime.date(1945, 8, 1) > self.birth_date:
-			return 'Pre-boomer'
-			pass
-		return 'Post-boomer'
-		pass
-	def is_midwestern(self):
-		return self.state in ('IL', 'WI', 'MI', 'IN', 'OH', 'IA', 'MO')
-		pass
-	def _get_full_name(self):
-		return u'%s %s ' % (self.first_name, self.last_name)
-	full_name = property(_get_full_name)
-		pass
+# 	def baby_boomer_status(self):
+# 		import datetime
+# 		if datetime.date(1945, 8, 1) <= self.birth_date <= datetime.date(1964, 12, 31):
+# 			return 'Baby boomer'
+# 			pass
+# 		if datetime.date(1945, 8, 1) > self.birth_date:
+# 			return 'Pre-boomer'
+# 			pass
+# 		return 'Post-boomer'
+# 		pass
+# 	def is_midwestern(self):
+# 		return self.state in ('IL', 'WI', 'MI', 'IN', 'OH', 'IA', 'MO')
+# 		pass
+# 	def _get_full_name(self):
+# 		return u'%s %s ' % (self.first_name, self.last_name)
+# 		pass
+# 	full_name = property(_get_full_name)
+		
 
