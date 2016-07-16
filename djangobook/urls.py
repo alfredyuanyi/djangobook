@@ -2,6 +2,7 @@
 from django.conf.urls import url, patterns
 from djangobook import views
 
+
 urlpatterns = [
 	# url(r'^djangobook/hello$', views.Hello),
 	#传递额外的参数到视图
