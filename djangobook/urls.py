@@ -1,5 +1,6 @@
 # coding: utf8
 from django.conf.urls import url, patterns
+from django.contrib.auth.views import login,logout
 from djangobook import views
 
 
@@ -12,7 +13,8 @@ urlpatterns = [
 	url(r'^djangobook/requestmeta/$', views.ShowRequestMeta),
 	url(r'^djangobook/contact/$', views.Contact),
 	url(r'^djangobook/contact/thanks/$', views.Thanks),
-	# url(r'^djangobook/requestcontext/$', views.RequestContext),
+	url(r'^djangobook/requestcontext/$', views.RequestContext),
+	url(r'^djangobook/account/login/$', login),
 ]
 urlpatterns += patterns('', 
 	#传递额外的参数到视图
