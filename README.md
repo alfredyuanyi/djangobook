@@ -1,1 +1,1 @@
-# djangobook
+# 这里是我学习django book的过程中做的所有记录，以便我后续查看。
